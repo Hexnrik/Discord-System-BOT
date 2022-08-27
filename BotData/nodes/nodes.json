@@ -1,0 +1,881 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "7942fe4c-dffa-4146-8cab-d254b3d80d5d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "8e77c264-0717-4685-8224-1e14dc6fafb5"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 147,
+      "y": 188
+    },
+    {
+      "type": "command",
+      "name": "info",
+      "guid": "2224944a-561a-4fa1-824b-2f31ea37c836",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "bf9a1366-4e11-4677-8db2-1fa8da9a25be"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 149,
+      "y": 325
+    },
+    {
+      "type": "response",
+      "name": "help menu",
+      "guid": "37eda463-a170-44f9-af54-61378ffc9294",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "!help",
+          "value": "Shows this menu.",
+          "inline": "true"
+        },
+        {
+          "name": "!info",
+          "value": "Shows your Infors about this Server.",
+          "inline": "true"
+        },
+        {
+          "name": "!love",
+          "value": "Gives Love to one !love <User>.",
+          "inline": "true"
+        },
+        {
+          "name": "!ping",
+          "value": "Play Ping pong.",
+          "inline": "true"
+        },
+        {
+          "name": "!survey",
+          "value": "Makes a Survey.",
+          "inline": "true"
+        }
+      ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8e77c264-0717-4685-8224-1e14dc6fafb5"
+        }
+      ],
+      "x": 509,
+      "y": 183,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "1FFF57",
+        "System × Help",
+        "",
+        "System",
+        "",
+        "",
+        "Owner: ${dbsVars.guild.owner}",
+        "${dbsVars.guild.iconURL}",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "show info",
+      "guid": "5053a44d-4a5e-460a-974d-da0cc07aac7c",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "bf9a1366-4e11-4677-8db2-1fa8da9a25be"
+        }
+      ],
+      "x": 508,
+      "y": 321,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Bot Creator: <@694476852710080514> (Hexnrik#1232)\n\nServer Owner: ${dbsVars.guild.owner}\n\nServer Name: ${dbsVars.guild.name}\n\nServer Members: ${dbsVars.guild.memberCount}\n\nServer Region: ${dbsVars.guild.region}\n\nServer Channel AFK Time: ${dbsVars.guild.afkTimeout}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "surveymessage",
+      "guid": "feffadc3-b8a2-45e5-9755-fc9fa00f02c2",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "SurveyMessage",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "779472ab-e053-4498-85d7-6eddcc37b953"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "21d09586-04e8-4141-baed-86c0b20322b9"
+        }
+      ],
+      "x": 711,
+      "y": 440,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "38FF4C",
+        "System × Survey",
+        "",
+        "",
+        "",
+        "",
+        "${tempVars.Survey}",
+        "${dbsVars.CommandAuthor.user.avatarURL}",
+        "",
+        "Survey From: ${dbsVars.CommandAuthor.displayName}",
+        "BOOL_TRUE@@",
+        "SurveyMessage",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "survey",
+      "guid": "969a60e1-bfb6-4310-8f86-aa78828f2947",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "54d10b37-57e9-435a-b07e-f08dc3382cea"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 154,
+      "y": 463
+    },
+    {
+      "type": "response",
+      "name": "SurveyVar",
+      "guid": "21d09586-04e8-4141-baed-86c0b20322b9",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "Survey",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "feffadc3-b8a2-45e5-9755-fc9fa00f02c2"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "54d10b37-57e9-435a-b07e-f08dc3382cea"
+        }
+      ],
+      "x": 540,
+      "y": 451,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "Survey",
+        "Text",
+        "temp",
+        ""
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "AddReactions",
+      "guid": "51d4f633-b503-4510-85bd-a1e17884b961",
+      "reactionFields": [
+        "👍",
+        "👎"
+      ],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "👍",
+          "connections": [
+            "306ea2e8-34c4-41fe-99e7-654ba6cd0964"
+          ]
+        },
+        {
+          "label": "👎",
+          "connections": [
+            "04b179c4-2a5d-4b9a-b039-8343a731b0d3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "779472ab-e053-4498-85d7-6eddcc37b953"
+        }
+      ],
+      "x": 1052,
+      "y": 425,
+      "rtype": "Reaction",
+      "rsubtype": "Add Reaction Listener",
+      "formdata": [
+        "${tempVars.SurveyMessage.id}",
+        "0",
+        "SurveyReactedEmoji",
+        "SurveyUserReactedEmoji",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "message",
+        "duration",
+        "reactionemoji",
+        "reactionuser",
+        "react"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "SendPrivatSucces",
+      "guid": "779472ab-e053-4498-85d7-6eddcc37b953",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "51d4f633-b503-4510-85bd-a1e17884b961"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "feffadc3-b8a2-45e5-9755-fc9fa00f02c2"
+        }
+      ],
+      "x": 884,
+      "y": 436,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandAuthor.user.dmChannel}",
+        "29FF5B",
+        "System × Succes",
+        "",
+        "",
+        "",
+        "",
+        "Your survey was successfully created with the content:\n\n`` ${tempVars.Survey} ``",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "SendPrivatUpvote",
+      "guid": "306ea2e8-34c4-41fe-99e7-654ba6cd0964",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "51d4f633-b503-4510-85bd-a1e17884b961"
+        }
+      ],
+      "x": 1227,
+      "y": 391,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${tempVars.SurveyUserReactedEmoji.user.dmChannel}",
+        "32FF2B",
+        "System × Succes",
+        "",
+        "",
+        "",
+        "",
+        "You voted **yes** for the poll.\n\nThe Text: \n\n`` ${tempVars.Survey} ``",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "SendPrivatUpvote_1",
+      "guid": "04b179c4-2a5d-4b9a-b039-8343a731b0d3",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "51d4f633-b503-4510-85bd-a1e17884b961"
+        }
+      ],
+      "x": 1228,
+      "y": 518,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${tempVars.SurveyUserReactedEmoji.user.dmChannel}",
+        "32FF2B",
+        "System × Succes",
+        "",
+        "",
+        "",
+        "",
+        "You voted **no** for the poll.\n\nThe Text: \n\n`` ${tempVars.Survey} ``",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "love",
+      "guid": "4d644ebc-316b-4a5f-ae76-b9cea6ad5b1e",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "c53cd765-ed4c-4425-a7fa-89a438917a1d"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 144,
+      "y": 578,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "LoveTestVar",
+      "guid": "4962696d-8cd7-4b47-a712-460381549929",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "LoveTestUser1",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "2879b24a-46a3-4baa-8f36-51cc54377d7c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c53cd765-ed4c-4425-a7fa-89a438917a1d"
+        }
+      ],
+      "x": 516,
+      "y": 582,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "LoveTestUser1",
+        "Text",
+        "temp",
+        "1"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "SendLoveTestFinish",
+      "guid": "2879b24a-46a3-4baa-8f36-51cc54377d7c",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "4962696d-8cd7-4b47-a712-460381549929"
+        }
+      ],
+      "x": 736,
+      "y": 568,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "FF0000",
+        "System × Love",
+        "",
+        "",
+        "",
+        "",
+        "Hey ${tempVars.LoveTestUser1},\n\nThe user: ${dbsVars.CommandAuthor.displayName}\n\nwant to tell you that he loves you",
+        "https://media.istockphoto.com/photos/hand-holding-heart-against-sparkling-golden-bokeh-lights-picture-id1193218253?k=20&m=1193218253&s=612x612&w=0&h=867Eq3yPsTe0ReLD2GEjicWH-6Q-TB_N1k9KHcmtfUU=",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "ping",
+      "guid": "23fa61e1-acbd-45c2-ac02-5229ac3cf717",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "46cfe63d-d95c-4bf4-ba41-0a6c3e2d8be3"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 148,
+      "y": 683
+    },
+    {
+      "type": "response",
+      "name": "PingPongMessage",
+      "guid": "b125bcaf-d229-4d5d-95dd-3245571d32e6",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "PingPong",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "8600767c-b7a4-43cc-92ab-d25c57300ba8"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "46cfe63d-d95c-4bf4-ba41-0a6c3e2d8be3"
+        }
+      ],
+      "x": 494,
+      "y": 702,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Pong 🏓",
+        "PingPong",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "AddPingPongEmoji",
+      "guid": "8600767c-b7a4-43cc-92ab-d25c57300ba8",
+      "reactionFields": [
+        "🏓"
+      ],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "🏓",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b125bcaf-d229-4d5d-95dd-3245571d32e6"
+        }
+      ],
+      "x": 681,
+      "y": 707,
+      "rtype": "Reaction",
+      "rsubtype": "Add Reaction Listener",
+      "formdata": [
+        "${tempVars.PingPong.id}",
+        "1",
+        "PingPongEmoji",
+        "PingPongEmojiReacted",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "message",
+        "duration",
+        "reactionemoji",
+        "reactionuser",
+        "react"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "DeleteTheCommand",
+      "guid": "8e77c264-0717-4685-8224-1e14dc6fafb5",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "37eda463-a170-44f9-af54-61378ffc9294"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
+        }
+      ],
+      "x": 336,
+      "y": 148,
+      "rtype": "Message",
+      "rsubtype": "Delete Message",
+      "formdata": [
+        "${dbsVars.CommandMessage.id}",
+        "${dbsVars.CommandChannel.id}"
+      ],
+      "formnames": [
+        "varname",
+        "channelName"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "DeleteTheCommand_1",
+      "guid": "bf9a1366-4e11-4677-8db2-1fa8da9a25be",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "5053a44d-4a5e-460a-974d-da0cc07aac7c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2224944a-561a-4fa1-824b-2f31ea37c836"
+        }
+      ],
+      "x": 325,
+      "y": 310,
+      "rtype": "Message",
+      "rsubtype": "Delete Message",
+      "formdata": [
+        "${dbsVars.CommandMessage.id}",
+        "${dbsVars.CommandChannel.id}"
+      ],
+      "formnames": [
+        "varname",
+        "channelName"
+      ],
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "DeleteTheCommand_2",
+      "guid": "54d10b37-57e9-435a-b07e-f08dc3382cea",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "21d09586-04e8-4141-baed-86c0b20322b9"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "969a60e1-bfb6-4310-8f86-aa78828f2947"
+        }
+      ],
+      "x": 326,
+      "y": 442,
+      "rtype": "Message",
+      "rsubtype": "Delete Message",
+      "formdata": [
+        "${dbsVars.CommandMessage.id}",
+        "${dbsVars.CommandChannel.id}"
+      ],
+      "formnames": [
+        "varname",
+        "channelName"
+      ],
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "DeleteTheCommand_3",
+      "guid": "c53cd765-ed4c-4425-a7fa-89a438917a1d",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "4962696d-8cd7-4b47-a712-460381549929"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "4d644ebc-316b-4a5f-ae76-b9cea6ad5b1e"
+        }
+      ],
+      "x": 309,
+      "y": 575,
+      "rtype": "Message",
+      "rsubtype": "Delete Message",
+      "formdata": [
+        "${dbsVars.CommandMessage.id}",
+        "${dbsVars.CommandChannel.id}"
+      ],
+      "formnames": [
+        "varname",
+        "channelName"
+      ],
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "DeleteTheCommand_4",
+      "guid": "46cfe63d-d95c-4bf4-ba41-0a6c3e2d8be3",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "b125bcaf-d229-4d5d-95dd-3245571d32e6"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "23fa61e1-acbd-45c2-ac02-5229ac3cf717"
+        }
+      ],
+      "x": 312,
+      "y": 705,
+      "rtype": "Message",
+      "rsubtype": "Delete Message",
+      "formdata": [
+        "${dbsVars.CommandMessage.id}",
+        "${dbsVars.CommandChannel.id}"
+      ],
+      "formnames": [
+        "varname",
+        "channelName"
+      ],
+      "messageActionRows": []
+    }
+  ]
+}

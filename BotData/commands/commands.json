@@ -1,0 +1,288 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "DeleteTheCommand",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        },
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "Shows this menu.",
+              "inline": "true"
+            },
+            {
+              "name": "!info",
+              "value": "Shows your Infors about this Server.",
+              "inline": "true"
+            },
+            {
+              "name": "!love",
+              "value": "Gives Love to one !love <User>.",
+              "inline": "true"
+            },
+            {
+              "name": "!ping",
+              "value": "Play Ping pong.",
+              "inline": "true"
+            },
+            {
+              "name": "!survey",
+              "value": "Makes a Survey.",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "1FFF57",
+          "title": "System × Help",
+          "url": "",
+          "authorname": "System",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Owner: ${dbsVars.guild.owner}",
+          "thumbnail": "${dbsVars.guild.iconURL}",
+          "image": "",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "actions": [
+        {
+          "name": "DeleteTheCommand_1",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        },
+        {
+          "name": "show info",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "Bot Creator: <@694476852710080514> (Hexnrik#1232)\n\nServer Owner: ${dbsVars.guild.owner}\n\nServer Name: ${dbsVars.guild.name}\n\nServer Members: ${dbsVars.guild.memberCount}\n\nServer Region: ${dbsVars.guild.region}\n\nServer Channel AFK Time: ${dbsVars.guild.afkTimeout}",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "survey",
+      "actions": [
+        {
+          "name": "DeleteTheCommand_2",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        },
+        {
+          "name": "SurveyVar",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "Survey",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": ""
+        },
+        {
+          "name": "surveymessage",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "38FF4C",
+          "title": "System × Survey",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "${tempVars.Survey}",
+          "thumbnail": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "image": "",
+          "footer": "Survey From: ${dbsVars.CommandAuthor.displayName}",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "SurveyMessage",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "SendPrivatSucces",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandAuthor.user.dmChannel}",
+          "color": "29FF5B",
+          "title": "System × Succes",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Your survey was successfully created with the content:\n\n`` ${tempVars.Survey} ``",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "AddReactions",
+          "category": "Reaction",
+          "type": "Add Reaction Listener",
+          "reactionActions": {
+            "👍": [
+              {
+                "name": "SendPrivatUpvote",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [],
+                "channelname": "${tempVars.SurveyUserReactedEmoji.user.dmChannel}",
+                "color": "32FF2B",
+                "title": "System × Succes",
+                "url": "",
+                "authorname": "",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "You voted **yes** for the poll.\n\nThe Text: \n\n`` ${tempVars.Survey} ``",
+                "thumbnail": "",
+                "image": "",
+                "footer": "",
+                "timestamp": "BOOL_TRUE@@",
+                "savetovariable": "",
+                "savetovariabletype": "temp"
+              }
+            ],
+            "👎": [
+              {
+                "name": "SendPrivatUpvote_1",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [],
+                "channelname": "${tempVars.SurveyUserReactedEmoji.user.dmChannel}",
+                "color": "32FF2B",
+                "title": "System × Succes",
+                "url": "",
+                "authorname": "",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "You voted **no** for the poll.\n\nThe Text: \n\n`` ${tempVars.Survey} ``",
+                "thumbnail": "",
+                "image": "",
+                "footer": "",
+                "timestamp": "BOOL_TRUE@@",
+                "savetovariable": "",
+                "savetovariabletype": "temp"
+              }
+            ]
+          },
+          "messageActionRows": [],
+          "message": "${tempVars.SurveyMessage.id}",
+          "duration": "0",
+          "reactionemoji": "SurveyReactedEmoji",
+          "reactionuser": "SurveyUserReactedEmoji",
+          "react": "BOOL_TRUE@@"
+        }
+      ]
+    },
+    {
+      "name": "love",
+      "perms": [],
+      "actions": [
+        {
+          "name": "DeleteTheCommand_3",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        },
+        {
+          "name": "LoveTestVar",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "LoveTestUser1",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "SendLoveTestFinish",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF0000",
+          "title": "System × Love",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Hey ${tempVars.LoveTestUser1},\n\nThe user: ${dbsVars.CommandAuthor.displayName}\n\nwant to tell you that he loves you",
+          "thumbnail": "https://media.istockphoto.com/photos/hand-holding-heart-against-sparkling-golden-bokeh-lights-picture-id1193218253?k=20&m=1193218253&s=612x612&w=0&h=867Eq3yPsTe0ReLD2GEjicWH-6Q-TB_N1k9KHcmtfUU=",
+          "image": "",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "ping",
+      "actions": [
+        {
+          "name": "DeleteTheCommand_4",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        },
+        {
+          "name": "PingPongMessage",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "Pong 🏓",
+          "savetovariable": "PingPong",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "AddPingPongEmoji",
+          "category": "Reaction",
+          "type": "Add Reaction Listener",
+          "reactionActions": {
+            "🏓": []
+          },
+          "messageActionRows": [],
+          "message": "${tempVars.PingPong.id}",
+          "duration": "1",
+          "reactionemoji": "PingPongEmoji",
+          "reactionuser": "PingPongEmojiReacted",
+          "react": "BOOL_TRUE@@"
+        }
+      ]
+    }
+  ]
+}
