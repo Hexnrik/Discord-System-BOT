@@ -114,7 +114,21 @@
         "saveToVariable",
         "saveToVariableType"
       ],
-      "messageActionRows": [],
+      "messageActionRows": [
+        {
+          "rowtype": "button",
+          "buttons": [
+            {
+              "label": "Help",
+              "customid": "Help",
+              "style": "LINK",
+              "emoji": "",
+              "URL": "https://wiki.hexnrik.de/",
+              "ephemeral": false
+            }
+          ]
+        }
+      ],
       "valueFields": []
     },
     {
@@ -153,7 +167,21 @@
         "saveToVariable",
         "saveToVariableType"
       ],
-      "messageActionRows": [],
+      "messageActionRows": [
+        {
+          "rowtype": "button",
+          "buttons": [
+            {
+              "label": "Infos",
+              "customid": "Information",
+              "style": "LINK",
+              "emoji": "",
+              "URL": "https://wiki.hexnrik.de/",
+              "ephemeral": false
+            }
+          ]
+        }
+      ],
       "valueFields": []
     },
     {
@@ -214,7 +242,21 @@
         "saveToVariable",
         "saveToVariableType"
       ],
-      "messageActionRows": [],
+      "messageActionRows": [
+        {
+          "rowtype": "button",
+          "buttons": [
+            {
+              "label": "What?",
+              "customid": "Umfrage",
+              "style": "LINK",
+              "emoji": "",
+              "URL": "https://www.qualtrics.com/de/erlebnismanagement/marktforschung/umfrage-basics/",
+              "ephemeral": false
+            }
+          ]
+        }
+      ],
       "valueFields": []
     },
     {
@@ -561,6 +603,8 @@
       "guid": "2879b24a-46a3-4baa-8f36-51cc54377d7c",
       "reactionFields": [],
       "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
       "outputs": [
         {
           "label": "next response",
@@ -609,7 +653,21 @@
         "saveToVariable",
         "saveToVariableType"
       ],
-      "messageActionRows": [],
+      "messageActionRows": [
+        {
+          "rowtype": "button",
+          "buttons": [
+            {
+              "label": "What?",
+              "customid": "LoveWhat",
+              "style": "LINK",
+              "emoji": "",
+              "URL": "https://www.cosmopolitan.de/was-bedeutet-liebe-92953.html",
+              "ephemeral": false
+            }
+          ]
+        }
+      ],
       "valueFields": []
     },
     {
@@ -863,8 +921,8 @@
           "id": "23fa61e1-acbd-45c2-ac02-5229ac3cf717"
         }
       ],
-      "x": 312,
-      "y": 705,
+      "x": 322,
+      "y": 707,
       "rtype": "Message",
       "rsubtype": "Delete Message",
       "formdata": [

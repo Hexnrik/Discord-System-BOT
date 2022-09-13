@@ -42,7 +42,21 @@
               "inline": "true"
             }
           ],
-          "messageActionRows": [],
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "Help",
+                  "customid": "Help",
+                  "style": "LINK",
+                  "emoji": "",
+                  "URL": "https://wiki.hexnrik.de/",
+                  "ephemeral": false
+                }
+              ]
+            }
+          ],
           "channelname": "${dbsVars.CommandChannel.id}",
           "color": "1FFF57",
           "title": "System × Help",
@@ -75,7 +89,21 @@
           "name": "show info",
           "category": "Message",
           "type": "Send Message",
-          "messageActionRows": [],
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "Infos",
+                  "customid": "Information",
+                  "style": "LINK",
+                  "emoji": "",
+                  "URL": "https://wiki.hexnrik.de/",
+                  "ephemeral": false
+                }
+              ]
+            }
+          ],
           "channelname": "${dbsVars.CommandChannel.id}",
           "messagetext": "Bot Creator: <@694476852710080514> (Hexnrik#1232)\n\nServer Owner: ${dbsVars.guild.owner}\n\nServer Name: ${dbsVars.guild.name}\n\nServer Members: ${dbsVars.guild.memberCount}\n\nServer Region: ${dbsVars.guild.region}\n\nServer Channel AFK Time: ${dbsVars.guild.afkTimeout}",
           "savetovariable": "",
@@ -108,7 +136,21 @@
           "name": "surveymessage",
           "category": "Message",
           "type": "Send Embed",
-          "messageActionRows": [],
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "What?",
+                  "customid": "Umfrage",
+                  "style": "LINK",
+                  "emoji": "",
+                  "URL": "https://www.qualtrics.com/de/erlebnismanagement/marktforschung/umfrage-basics/",
+                  "ephemeral": false
+                }
+              ]
+            }
+          ],
           "channelname": "${dbsVars.CommandChannel.id}",
           "color": "38FF4C",
           "title": "System × Survey",
@@ -229,7 +271,21 @@
           "name": "SendLoveTestFinish",
           "category": "Message",
           "type": "Send Embed",
-          "messageActionRows": [],
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "What?",
+                  "customid": "LoveWhat",
+                  "style": "LINK",
+                  "emoji": "",
+                  "URL": "https://www.cosmopolitan.de/was-bedeutet-liebe-92953.html",
+                  "ephemeral": false
+                }
+              ]
+            }
+          ],
           "channelname": "${dbsVars.CommandChannel.id}",
           "color": "FF0000",
           "title": "System × Love",
